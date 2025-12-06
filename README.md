@@ -41,6 +41,7 @@
 ### 1.8. При работе в IDE сформируйте ER-диаграмму получившейся базы данных. При работе в командной строке используйте команду для получения всех таблиц базы данных. (скриншот)
 <img width="398" height="774" alt="image" src="https://github.com/user-attachments/assets/8328aa69-da2d-457a-ba00-192f7a1fe60e" />
 ### Простыня с запросами
+
 # 1. Запуск контейнера
 docker rm -f mysql8
 docker run --name mysql8 -e MYSQL_ROOT_PASSWORD=rootpass -p 3307:3306 -d mysql:8.0

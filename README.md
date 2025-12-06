@@ -38,8 +38,49 @@
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/45ff8142-7810-453d-8d2d-f4b360acf950" />
 ### 1.6. Переподключитесь к базе данных от имени sys_temp.
 ### 1.7. Восстановите дамп в базу данных.
+### 1.8. При работе в IDE сформируйте ER-диаграмму получившейся базы данных. При работе в командной строке используйте команду для получения всех таблиц базы данных. (скриншот)
 <img width="398" height="774" alt="image" src="https://github.com/user-attachments/assets/8328aa69-da2d-457a-ba00-192f7a1fe60e" />
+### Простыня с запросами
+# 1. Запуск контейнера
+docker rm -f mysql8
+docker run --name mysql8 -e MYSQL_ROOT_PASSWORD=rootpass -p 3307:3306 -d mysql:8.0
+docker ps
 
+# 2. Подключение как root
+mysql -h 127.0.0.1 -P 3307 -u root -p
+
+# 3. Создание пользователя
+CREATE USER 'sys_temp'@'localhost' IDENTIFIED BY 'alexandr';
+
+# 4. Список пользователей
+SELECT user, host FROM mysql.user;
+
+# 5. Права для sys_temp
+GRANT ALL PRIVILEGES ON *.* TO 'sys_temp'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+# 6. Список прав
+SHOW GRANTS FOR 'sys_temp'@'localhost';
+
+# 7. Переподключение
+\q
+mysql -h 127.0.0.1 -P 3307 -u sys_temp -p
+SELECT CURRENT_USER();
+
+# 8. Смена аутентификации (опционально)
+ALTER USER 'sys_temp'@'localhost' IDENTIFIED WITH mysql_native_password BY '12345678';
+FLUSH PRIVILEGES;
+
+# 9. Загрузка дампа
+wget https://downloads.mysql.com/docs/sakila-db.zip
+unzip sakila-db.zip
+mysql -h 127.0.0.1 -P 3307 -u root -p -e "CREATE DATABASE sakila;"
+mysql -h 127.0.0.1 -P 3307 -u root -p sakila < sakila-schema.sql
+mysql -h 127.0.0.1 -P 3307 -u root -p sakila < sakila-data.sql
+
+# 10. Проверка таблиц
+USE sakila;
+SHOW TABLES;
 
 
 ### Задание 2

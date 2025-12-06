@@ -32,6 +32,14 @@
 
 ### 1.3. Выполните запрос на получение списка пользователей в базе данных. (скриншот)
 <img width="690" height="298" alt="image" src="https://github.com/user-attachments/assets/c8dcaf6a-20aa-4704-99c1-5fb6d3d0fc7a" />
+### 1.4. Дайте все права для пользователя sys_temp.
+<img width="1101" height="130" alt="image" src="https://github.com/user-attachments/assets/f01eaa4e-40a4-430a-ba42-246abc0fedd3" />
+### 1.5. Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/45ff8142-7810-453d-8d2d-f4b360acf950" />
+### 1.6. Переподключитесь к базе данных от имени sys_temp.
+### 1.7. Восстановите дамп в базу данных.
+<img width="398" height="774" alt="image" src="https://github.com/user-attachments/assets/8328aa69-da2d-457a-ba00-192f7a1fe60e" />
+
 
 
 ### Задание 2
